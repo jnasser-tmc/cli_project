@@ -44,11 +44,13 @@ def edit_document(
 
     docs[doc_id] = docs[doc_id].replace(old_string, new_string)
 
-# TODO: Write a resource to return all doc id's
+## Write a resource to return all doc id's
 @mcp.resource(
     "doc://documents",
     mime_type="application/json",
 )
+def list_docs() -> list[str]:
+    return list(docs.keys())
 
 
 # TODO: Write a resource to return the contents of a particular doc
